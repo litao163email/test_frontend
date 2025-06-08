@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+}
+
+/* 登录页面组件样式 */
+.login_box .el-input__inner{
+	background: rgba(0,0,0,0.1) !important;
+	color: #fff;
+	font-size: 18px;
+	border: none;
+	border-radius: 0px;
+	border-bottom: solid 1px #00557f;
+}
+.login_box .el-input__prefix {
+	font-size: 18px;
+	color: #fff
+
+}
+/* 数据列表样式设置 */
+.data_box {
+	box-shadow: 0 0 5px #00aa7f;
+}
+.data_box .title {
+	height: 40px;
+	text-align: center;
+	font: bold 20px/40px 'microsoft yahei';
+	border-bottom: solid 3px #878787;
+}
+.data_box .el-submenu__title,
+.data_box .el-submenu .el-menu-item{
+	height: 35px;
+	line-height: 35px;
+}
+
+/* 设置接口测试左侧的菜单选项卡 */
+.data_box .el-tabs__content {
+	padding: 0;
+}
+
+/* 表格折叠行展开内容 */
+.el-table__expanded-cell[class*=cell]{
+	padding: 5px  5px !important;
+}
