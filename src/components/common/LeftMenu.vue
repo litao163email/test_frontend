@@ -42,7 +42,7 @@ const menuList = [
 		icon: 'el-icon-paperclip'
 	},
 	{
-		name: '接口测试',
+		name: '接口用例',
 		path: '/testStep',
 		icon: 'el-icon-connection'
 	},
@@ -57,7 +57,7 @@ const menuList = [
 		icon: 'el-icon-collection-tag'
 	},
 	{
-		name: '测试环境',
+		name: '环境信息',
 		path: '/testenv',
 		icon: 'el-icon-coin'
 	},

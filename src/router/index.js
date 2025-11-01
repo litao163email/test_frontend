@@ -25,7 +25,7 @@ const routes = [{
             }
         }, {
             path: '/teststep', name: 'teststep', component: () => import('../views/TestStep.vue'), meta: {
-                name: "接口测试"
+                name: "接口用例"
             }
         }, {
             path: '/testplan', name: 'testplan', component: () => import('../views/TestPlan.vue'), meta: {
@@ -35,7 +35,7 @@ const routes = [{
 
         {
             path: '/testenv', name: 'testenv', component: () => import('../views/TestEnv.vue'), meta: {
-                name: "测试环境"
+                name: "环境信息"
             }
         }, {
             path: '/crontab', name: 'crontab', component: () => import('../views/CronTab.vue'), meta: {
