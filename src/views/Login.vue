@@ -17,7 +17,7 @@
 				<el-form-item size="mini" label="记住用户" style="margin-top: 10px;"><el-switch v-model="status" size="default" active-color="#00557f"></el-switch></el-form-item>
 				<!-- 按钮 -->
 				<el-form-item class="btns">
-					<el-button size="default" style="color:#fff;width: 100%;background: #00557f;border: 0;" @click="login">登&nbsp;&nbsp; 录</el-button>
+					<el-button size="default" style="color:#fff;width: 100%;background: #00557f;border: 0;" @click="login">登录 Login</el-button>
 				</el-form-item>
 			</el-form>
 			<div style="color: #fff;">

@@ -19,5 +19,18 @@ app.config.globalProperties.$tools = tools
 import chart from './chart/index.js'
 app.config.globalProperties.$chart = chart
 
+// 集成 Stagewise 开发工具（仅在开发环境）
+if (process.env.NODE_ENV === 'development') {
+  import('@stagewise/toolbar').then((stagewise) => {
+    if (stagewise.initToolbar) {
+      stagewise.initToolbar({
+        plugins: []
+      })
+    }
+  }).catch((err) => {
+    console.warn('Stagewise 工具栏加载失败:', err)
+  })
+}
+
 installElementPlus(app)
 app.use(store).use(router).mount('#app')

@@ -30,6 +30,7 @@
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@stagewise/toolbar": "^0.6.3",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",

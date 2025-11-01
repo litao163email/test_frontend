@@ -4,7 +4,7 @@ import {
 	ElMessage
 } from 'element-plus';
 // 设置后台域名
-axios.defaults.baseURL = 'http://127.0.0.1:8888/'
+axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 axios.defaults.validateStatus = function(status) {
 	return true
 }
