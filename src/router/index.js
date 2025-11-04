@@ -55,7 +55,11 @@ const routes = [{
             path: '/records', name: 'records', component: () => import('../views/Records.vue'), meta: {
                 name: "测试报表"
             }
-        },]
+        }, {
+            path: '/difychat', name: 'difychat', component: () => import('../views/DifyChat.vue'), meta: {
+                name: "AI Agent"
+            }
+        }]
 }, {
     path: '/login', name: 'login', component: () => import( /* webpackChunkName: "about" */ '../views/Login.vue'),
 

@@ -43,7 +43,7 @@ const menuList = [
 	},
 	{
 		name: '接口用例',
-		path: '/testStep',
+		path: '/teststep',
 		icon: 'el-icon-connection'
 	},
 	{
@@ -75,6 +75,11 @@ const menuList = [
 		name: '测试报表',
 		path: '/records',
 		icon: 'el-icon-s-data'
+	},
+	{
+		name: 'AI Agent',
+		path: '/difychat',
+		icon: 'el-icon-chat-dot-round'
 	}
 ];
 
