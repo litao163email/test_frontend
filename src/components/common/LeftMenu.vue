@@ -77,9 +77,14 @@ const menuList = [
 		icon: 'el-icon-s-data'
 	},
 	{
-		name: 'AI Agent',
+		name: '压测分析AI',
 		path: '/difychat',
 		icon: 'el-icon-chat-dot-round'
+	},
+	{
+		name: '数据库AI(MCP)',
+		path: '/difychat2',
+		icon: 'el-icon-chat-line-round'
 	}
 ];
 

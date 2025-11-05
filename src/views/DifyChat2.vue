@@ -3,7 +3,7 @@
 		<el-card class="chat-card">
 			<template #header>
 				<div class="card-header">
-					<span class="title">压测分析AI</span>
+					<span class="title">数据库AI(MCP)</span>
 					<el-button v-if="isStreaming" @click="stopStream" type="danger" size="small" plain>
 						停止
 					</el-button>
@@ -90,7 +90,7 @@
 import { API_CONFIG } from '../../config.js'
 
 export default {
-	name: 'DifyChat',
+	name: 'DifyChat2',
 	data() {
 		return {
 			messages: [],
@@ -99,16 +99,17 @@ export default {
 			currentStreamContent: '',
 			abortController: null,
 			// Dify API 配置（从 config.js 读取）
-			apiBaseUrl: API_CONFIG.DIFY_CHAT.BASE_URL,
-			apiKey: API_CONFIG.DIFY_CHAT.API_KEY,
+			apiBaseUrl: API_CONFIG.DIFY_CHAT2.BASE_URL,
+			apiKey: API_CONFIG.DIFY_CHAT2.API_KEY,
 			// 快捷语句
 			showQuickPhrases: false,
 			quickPhrases: [
-				'帮我分析一下性能压测数据',
-				'生成测试用例',
-				'如何进行接口测试？',
-				'解释一下这个测试结果',
-				'如何优化测试用例？'
+				'查询数据库表结构',
+				'帮我分析数据库性能问题',
+				'如何优化SQL查询？',
+				'解释一下这个数据库查询结果',
+				'如何创建数据库索引？',
+				'数据库连接池配置建议'
 			]
 		}
 	},
@@ -354,12 +355,12 @@ export default {
 	height: calc(100vh - 60px);
 	display: flex;
 	flex-direction: column;
-	background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #22d3ee 100%);
+	background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
 	position: relative;
 	overflow: hidden;
 }
 
-/* 科技感动画背景 */
+/* 科技感动画背景 - 数据库风格 */
 .dify-chat-container::before {
 	content: '';
 	position: absolute;
@@ -368,9 +369,9 @@ export default {
 	right: 0;
 	bottom: 0;
 	background: 
-		radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
-		radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.4) 0%, transparent 50%),
-		radial-gradient(circle at 40% 20%, rgba(96, 165, 250, 0.3) 0%, transparent 50%);
+		radial-gradient(circle at 15% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 85% 70%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 50% 50%, rgba(64, 224, 208, 0.05) 0%, transparent 70%);
 	animation: backgroundShift 20s ease infinite;
 	z-index: 0;
 }
@@ -386,13 +387,14 @@ export default {
 	flex-direction: column;
 	height: 100%;
 	overflow: hidden;
-	background: rgba(255, 255, 255, 0.05);
+	background: rgba(15, 32, 39, 0.6);
 	backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(0, 255, 255, 0.2);
 	border-radius: 20px;
 	box-shadow: 
-		0 8px 32px rgba(0, 0, 0, 0.3),
-		inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		0 8px 32px rgba(0, 0, 0, 0.5),
+		inset 0 1px 0 rgba(0, 255, 255, 0.1),
+		0 0 30px rgba(0, 255, 255, 0.1);
 	position: relative;
 	z-index: 1;
 }
@@ -408,8 +410,8 @@ export default {
 }
 
 .chat-card :deep(.el-card__header) {
-	background: rgba(255, 255, 255, 0.05);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(15, 32, 39, 0.6);
+	border-bottom: 1px solid rgba(0, 255, 255, 0.2);
 	padding: 20px;
 	border-radius: 20px 20px 0 0;
 }
@@ -423,13 +425,14 @@ export default {
 .title {
 	font-size: 20px;
 	font-weight: 700;
-	background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 50%, #06b6d4 100%);
+	background: linear-gradient(135deg, #00d4ff 0%, #00ffea 50%, #00ffaa 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-	text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+	text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
 	letter-spacing: 0.5px;
 	position: relative;
+	font-family: 'Courier New', monospace;
 }
 
 .title::after {
@@ -439,14 +442,15 @@ export default {
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background: linear-gradient(90deg, #3b82f6, #22d3ee, #06b6d4);
+	background: linear-gradient(90deg, #00d4ff, #00ffea, #00ffaa);
 	border-radius: 2px;
 	animation: titleGlow 2s ease-in-out infinite;
+	box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
 }
 
 @keyframes titleGlow {
-	0%, 100% { opacity: 0.6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
-	50% { opacity: 1; box-shadow: 0 0 20px rgba(34, 211, 238, 0.8); }
+	0%, 100% { opacity: 0.6; box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+	50% { opacity: 1; box-shadow: 0 0 20px rgba(0, 255, 255, 1); }
 }
 
 .chat-messages {
@@ -454,13 +458,14 @@ export default {
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 20px;
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(15, 32, 39, 0.2) 100%);
 	background-image: 
-		radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+		linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
 	background-size: 20px 20px;
 	min-height: 0;
 	scrollbar-width: thin;
-	scrollbar-color: rgba(34, 211, 238, 0.5) rgba(0, 0, 0, 0.2);
+	scrollbar-color: rgba(0, 255, 255, 0.5) rgba(0, 0, 0, 0.3);
 	position: relative;
 }
 
@@ -486,15 +491,16 @@ export default {
 }
 
 .message-item.user .message-content {
-	background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 100%);
-	color: white;
+	background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%);
+	color: #0f2027;
 	border-bottom-right-radius: 4px;
 	box-shadow: 
-		0 4px 15px rgba(59, 130, 246, 0.4),
+		0 4px 15px rgba(0, 212, 255, 0.4),
 		inset 0 1px 0 rgba(255, 255, 255, 0.3);
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(0, 255, 255, 0.3);
 	position: relative;
 	overflow: hidden;
+	font-weight: 500;
 }
 
 .message-item.user .message-content::before {
@@ -504,7 +510,7 @@ export default {
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 	animation: shimmer 3s infinite;
 }
 
@@ -514,14 +520,14 @@ export default {
 }
 
 .message-item.assistant .message-content {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(0, 255, 255, 0.1);
 	backdrop-filter: blur(10px);
-	color: #fff;
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #e0f7fa;
+	border: 1px solid rgba(0, 255, 255, 0.3);
 	border-bottom-left-radius: 4px;
 	box-shadow: 
-		0 4px 15px rgba(0, 0, 0, 0.2),
-		inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		0 4px 15px rgba(0, 0, 0, 0.3),
+		inset 0 1px 0 rgba(0, 255, 255, 0.2);
 }
 
 .message-role {
@@ -544,9 +550,9 @@ export default {
 .cursor {
 	display: inline-block;
 	animation: blink 1s infinite;
-	color: #22d3ee;
+	color: #00ffea;
 	font-weight: bold;
-	text-shadow: 0 0 10px rgba(34, 211, 238, 0.8);
+	text-shadow: 0 0 10px rgba(0, 255, 234, 0.8);
 }
 
 @keyframes blink {
@@ -572,8 +578,8 @@ export default {
 .chat-input-area {
 	flex-shrink: 0;
 	padding: 20px;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
-	background: rgba(255, 255, 255, 0.05);
+	border-top: 1px solid rgba(0, 255, 255, 0.2);
+	background: rgba(15, 32, 39, 0.6);
 	backdrop-filter: blur(10px);
 }
 
@@ -582,22 +588,22 @@ export default {
 }
 
 .input-box :deep(.el-textarea__inner) {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(0, 255, 255, 0.1);
 	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 255, 255, 0.3);
 	border-radius: 12px;
-	color: #fff;
+	color: #e0f7fa;
 	transition: all 0.3s ease;
 }
 
 .input-box :deep(.el-textarea__inner):focus {
-	background: rgba(255, 255, 255, 0.15);
-	border-color: rgba(34, 211, 238, 0.6);
-	box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+	background: rgba(0, 255, 255, 0.15);
+	border-color: rgba(0, 255, 234, 0.6);
+	box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
 }
 
 .input-box :deep(.el-textarea__inner)::placeholder {
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(224, 247, 250, 0.5);
 }
 
 .input-actions {
@@ -640,18 +646,19 @@ export default {
 }
 
 .quick-phrase-tag {
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	color: rgba(255, 255, 255, 0.9);
+	background: rgba(0, 255, 255, 0.1);
+	border: 1px solid rgba(0, 255, 255, 0.3);
+	color: rgba(224, 247, 250, 0.9);
 	backdrop-filter: blur(10px);
 }
 
 .quick-phrase-tag:hover {
-	background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 100%);
-	color: white;
+	background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%);
+	color: #0f2027;
 	transform: translateY(-2px);
-	box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4);
-	border-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+	border-color: rgba(0, 255, 255, 0.5);
+	font-weight: 500;
 }
 
 /* 滚动条样式 - Webkit 浏览器 (Chrome, Safari, Edge) */
@@ -660,25 +667,26 @@ export default {
 }
 
 .chat-messages::-webkit-scrollbar-track {
-	background: rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.3);
 	border-radius: 10px;
 	margin: 5px 0;
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
-	background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 100%);
+	background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%);
 	border-radius: 10px;
-	border: 2px solid rgba(0, 0, 0, 0.2);
+	border: 2px solid rgba(0, 0, 0, 0.3);
 	transition: all 0.3s ease;
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover {
-	background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
-	box-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+	background: linear-gradient(135deg, #00ffea 0%, #00d4ff 100%);
+	box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
 	cursor: pointer;
 }
 
 .chat-messages::-webkit-scrollbar-thumb:active {
-	background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
+	background: linear-gradient(135deg, #00a8cc 0%, #00d4ff 100%);
 }
 </style>
+

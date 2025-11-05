@@ -57,7 +57,11 @@ const routes = [{
             }
         }, {
             path: '/difychat', name: 'difychat', component: () => import('../views/DifyChat.vue'), meta: {
-                name: "AI Agent"
+                name: "压测分析AI"
+            }
+        }, {
+            path: '/difychat2', name: 'difychat2', component: () => import('../views/DifyChat2.vue'), meta: {
+                name: "数据库AI(MCP)"
             }
         }]
 }, {
