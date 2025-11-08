@@ -9,6 +9,16 @@ export const API_CONFIG = {
   DIFY_CHAT2: {
     BASE_URL: 'http://localhost/v1',
     API_KEY: 'app-Jdr5SrHdNHzXoAu532KODOZf'
+  },
+  // AI 用例 聊天页面配置
+  DIFY_CHAT3: {
+    BASE_URL: 'http://localhost/v1',
+    API_KEY: 'app-vjyf1ngtIPOo5TZZ3YkE3pSS'
+  },
+  // 服务器 AI 聊天页面配置
+  DIFY_CHAT4: {
+    BASE_URL: 'http://localhost/v1',
+    API_KEY: 'app-zYY7KyKuyGLn2ot5RSvE3SKn'
   }
 }
 

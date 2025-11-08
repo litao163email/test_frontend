@@ -63,6 +63,14 @@ const routes = [{
             path: '/difychat2', name: 'difychat2', component: () => import('../views/DifyChat2.vue'), meta: {
                 name: "数据库AI(MCP)"
             }
+        }, {
+            path: '/difychat3', name: 'difychat3', component: () => import('../views/DifyChat3.vue'), meta: {
+                name: "用例生成(AI)"
+            }
+        }, {
+            path: '/difychat4', name: 'difychat4', component: () => import('../views/DifyChat4.vue'), meta: {
+                name: "服务器 AI"
+            }
         }]
 }, {
     path: '/login', name: 'login', component: () => import( /* webpackChunkName: "about" */ '../views/Login.vue'),

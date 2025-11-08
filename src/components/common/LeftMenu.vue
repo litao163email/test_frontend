@@ -21,7 +21,7 @@
 		<el-scrollbar height="calc(100vh - 54px);">
 			<el-menu :default-active="$route.path" router class="el-menu-vertical-demo" active-text-color="#ffd04b" text-color="#fff" style="background: none;border: none;">
 				<el-menu-item :index="item.path" v-for="item in menus">
-					<span :class="item.icon"></span>
+					<i :class="item.icon"></i>
 					<span>{{ item.name }}</span>
 				</el-menu-item>
 			</el-menu>
@@ -85,6 +85,16 @@ const menuList = [
 		name: '数据库AI(MCP)',
 		path: '/difychat2',
 		icon: 'el-icon-chat-line-round'
+	},
+	{
+		name: '用例生成(AI)',
+		path: '/difychat3',
+		icon: 'el-icon-document'
+	},
+	{
+		name: '服务器 AI',
+		path: '/difychat4',
+		icon: 'el-icon-cpu'
 	}
 ];
 
