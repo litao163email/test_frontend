@@ -3,6 +3,7 @@
 基于 Vue 3 + Element Plus 开发的接口自动化测试平台前端应用。
 <img width="1991" height="1077" alt="image" src="https://github.com/user-attachments/assets/abb15fa0-7864-41d7-8ced-cce13f01a287" />
 
+只需要配置 config.js 文件的 api key 即可实现对话，不同 agent 请email 联系我获取 dsl 文件
 
 ## 技术栈
 
